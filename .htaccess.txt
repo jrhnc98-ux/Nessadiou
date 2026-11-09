@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /Nessadiou/
+
+# Si le fichier demandé n'existe pas physiquement
+RewriteCond %{REQUEST_FILENAME} !-f
+# Si le dossier demandé n'existe pas physiquement
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# On envoie tout vers le routeur
+RewriteRule ^(.*)$ router.php [QSA,L]
